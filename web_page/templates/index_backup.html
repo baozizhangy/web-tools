@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+<!--  {% load static %}-->
+  <meta charset="UTF-8">
+  <meta name="viewport">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>sit测试工具</title>
+<!--  <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.4/jsoneditor.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.4/jsoneditor.min.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+  <link rel="icon" type="image/x-ico" href="{% static 'image/favicon.ico' %}" />
+<!--  <script src="{% static 'js/script_vue.js' %}"></script>-->
+<!--  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.cjs.js"></script>-->
+<!--  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+</head>
+<script>
+    window.addEventListener('beforeunload', function() {
+        // 移除之前的 CSS 文件
+      const cssLink = document.getElementById('cssFile');
+      cssLink.parentNode.removeChild(cssLink);
+
+        // 移除之前的 JS 文件
+      const jsScript = document.getElementById('jsFile');
+      jsScript.parentNode.removeChild(jsScript);
+    });
+</script>
+<body>
+  <div class="block form-row>">
+  <h3>sit测试工具</h3>
+  <div class="form-row>">
+    <label class="inline-label" for="generalField">选择运行环境：</label>
+    <select id="generalField" name="generalField">
+      <option value="SIT">SIT</option>
+      <option value="DEV">DEV</option>
+    </select>
+  </div>
+  <br>
+
+  <div class="block">
+    <button class="collapsible">工具导航</button>
+    <table class="urlTb">
+        <tr>
+          <td><a href="https://www.google.com" target="_blank">Google</a></td>
+          <td><a href="https://www.baidu.com" target="_blank">Baidu</a></td>
+          <td><a href="https://www.bing.com" target="_blank">Bing</a></td>
+          <td><a href="https://jwt.io/" target="_blank">jwt-cookies解析</a></td>
+          <td><a href="https://www.bejson.com/" target="_blank">json格式化</a></td>
+        </tr>
+        <tr>
+          <td><a href="http://kibana-sit.xurongwl.com/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(uid,text),filters:!(),index:e3b20a60-27c8-11ea-a1fa-038baf416a86,interval:auto,query:(language:kuery,query:''),sort:!())" target="_blank">sit-查询验证码</a></td>
+          <td><a href="http://kibana-test.xurongwl.com/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-3h,to:now))&_a=(columns:!(message,k8s_pod_namespace),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,field:k8s_pod_namespace,index:filebeat,key:k8s_pod_namespace,negate:!f,params:(query:sit),type:phrase),query:(match_phrase:(k8s_pod_namespace:sit)))),grid:(columns:(text:(width:271),uid:(width:181))),index:filebeat,interval:auto,query:(language:kuery,query:''),rowHeight:11,sort:!(!('@timestamp',desc)))" target="_blank">es日志查询</a></td>
+          <td><a href="http://easymock.xurongwl.com/project/64b50b37cce8c8002247db57" target="_blank">easymock平台</a></td>
+          <td><a href="https://test.xurongwl.com/nacos/#/configurationManagement?serverId=center&group=goa&dataId=ock&namespace=sit&pageSize=&pageNo=&appName=" target="_blank">nacos配置管理</a></td>
+          <td><a href="http://widek-sit.xurongwl.com/customer-service/serviceEncryption" target="_blank">sit-widek四要素加解密</a></td>
+        </tr>
+        <tr>
+          <td><a href="http://139.224.213.154:8081/#/api/automation" target="_blank">压测平台meterSphere-暂未部署</a></td>
+          <td><a href="http://grafana.xurongwl.com/login" target="_blank">服务资源监控</a></td>
+          <td><a href="http://skywalking.xurongwl.com/" target="_blank">skywalking</a></td>
+          <td><a href="http://etti.xurongwl.com/index" target="_blank">运维管理平台</a></td>
+          <td><a href="https://gitlab.xurongwl.com/" target="_blank">gitlab</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://apppreview.xurongwl.com/webpage/page/internaltool_pre#/" target="_blank">旧测试工具</a></td>
+          <td><a href="https://c60v462yqp.feishu.cn/wiki/ApQowrLEgiofklkI40HcY9g6nGc" target="_blank">基础环境权限信息</a></td>
+          <td><a href="https://www.tapd.cn/tapd_fe/52082284/bug/list" target="_blank">TAPD</a></td>
+          <td><a href="https://test3.xurongwl.com/xxl-job-admin/jobinfo" target="_blank">sit-xxl-job任务管理</a></td>
+          <td><a href="https://test2.xurongwl.com/xxl-job-admin/jobinfo?jobGroup=32" target="_blank">dev-xxl-job任务管理</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://test2.xurongwl.com/clg/bcs/api/p/hub/v1/page/load/26176?td_channelid=apihub_h5_test#/login" target="_blank">dev-h5流程测试链接</a></td>
+        </tr>
+    </table><br><br>
+  </div>
+
+  <div class="block">
+    <button class="collapsible">MD5加密</button>
+    <div class="form-row little-tools">
+      <label for="input">MD5加密：</label>
+      <input type="text" id="input" placeholder="手机号"/>
+      <button onclick="encrypt()">加密</button>
+      <label for="output">加密结果：</label>
+      <output id="output"></output>
+    <!--  <pre id="output"></pre>-->
+    <!--  <textarea id="output"></textarea>-->
+    <!--  <input id="output" type="text" placeholder="加密结果" readonly>-->
+    <!--  <div id="output" class="form-row"></div>-->
+    <!--  <span id="output"></span>-->
+    <!--  <p id="output"></p>-->
+    </div>
+  </div>
+
+  <div class="block">
+  <button class="collapsible">查询用户信息</button>
+<!--  <div class="form-row container little-tools">-->
+  <div class="container">
+    <label for="md5Input">手机号MD5查用户信息：</label>
+    <input type="text" style="width: 260px;" id="md5Input" placeholder="手机号MD5" />
+    <button onclick="sendRequest()">查询</button>
+    <label for="userOutput">查询结果：</label>
+<!--    <output id="userOutput"></output>-->
+    <div id="userOutput"  class="output-box"></div>
+  </div>
+  </div>
+
+  <div class="block">
+  <button class="collapsible">清除分发缓存</button>
+<!--  <div class="form-row container little-tools">-->
+  <div class="container">
+    <button onclick="clearTDSCache()">清除</button>
+    <label for="clearTDSCacheResBox">执行结果：</label>
+    <div id="clearTDSCacheResBox"  class="output-box"></div>
+  </div>
+  </div>
+
+  <div class="block">
+  <button class="collapsible">清除用户信息</button>
+  <div class="container">
+    <label class="inline-label" for="inputField">清除用户信息：</label>
+    <input type="text" id="inputField" placeholder="用户号user_no" name="inputField">
+    <p style="font-size: 12px; color: #999; margin: 3px;">
+      account账户数据，bank_info银行卡数据，draw_info借款数据，flow授信流程，auth实名数据，cust_info客户数据，user_info用户数据
+      <br>如需不删除实名信息，仅重新进行授信选择：account, bank_info, draw_info, flow
+      <br>仅重走分发、授信提交选择：flow
+    </p>
+    <div>
+      <label for="itemList" class="inline-label">选择需清除的信息：</label>
+      <ul id="itemList" class="inline-list">
+        <li data-value="account">account账户</li>
+        <li data-value="bank_info">bank_info银行卡</li>
+        <li data-value="draw_info">draw_info借款</li>
+        <li data-value="flow">flow授信流</li>
+        <li data-value="auth">auth实名</li>
+        <li data-value="cust_info">cust_info客户信息</li>
+        <li data-value="user_info">user_info用户信息</li>
+      </ul>
+      <button id="submitBtn">提交清除</button>
+      <div id="resultBox" class="output-box" ></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="block">
+  <button class="collapsible">创建测试用户</button>
+  <div class="container">
+    <label for="createUserNode" class="inline-label">创建测试用户：</label>
+    <select id="createUserNode" name="createUserNode">
+      <option value="pilotIdentity">实名未完成</option>
+      <option value="pilotContact">实名完成，进入联系人节点</option>
+      <option value="pilotDetails">联系人完成，进入详细资料节点</option>
+      <option value="pilotLoading">详细资料完成，进入机构选择页</option>
+      <option value="creditResult">授信提交完成</option>
+      <option value="draw">借款提交完成</option>
+    </select>
+    <button id="submitCreditBtn">创建</button>
+    <br>
+    <label class="inline-label" for="createUserChannel">选择渠道：</label>
+    <select id="createUserChannel" name="createUserChannel">
+      <option value="LXJ_APP">LXJ_APP</option>
+      <option value="HUB_TEST">HUB_TEST</option>
+    </select>
+    <label class="inline-label" for="createUserProduct">选择产品：</label>
+    <select id="createUserProduct" name="createUserProduct">
+      <option value="PILOT_APP">PILOT_APP</option>
+      <option value="PILOT_HUB">PILOT_HUB</option>
+    </select>
+    <label class="inline-label" for="createUserMobile">手机号：</label>
+    <input type="text" id="createUserMobile" style="width: 210px;" placeholder="指定12349手机号，不需要则为空" />
+    <div id="creditResBox" class="output-box"></div>
+  </div>
+  </div>
+
+  <div class="block">
+  <button class="collapsible">渠道操作</button>
+  <div class="container">
+    <label class="inline-label" for="userChannel">选择渠道：</label>
+    <select id="userChannel" name="userChannel">
+      <option value="HUB_HUOLALA">HUB_HUOLALA货拉拉</option>
+      <option value="HUB_ZHONGMI">HUB_ZHONGMI众米</option>
+      <option value="HUB_XIAOHUA">HUB_XIAOHUA小花钱包</option>
+      <option value="HUB_YIJIESUDAI_V2">HUB_YIJIESUDAI_V2易借速贷V2</option>
+      <option value="HUB_JUZI">HUB_JUZI橘子</option>
+      <option value="HUB_MINSHENG">HUB_MINSHENG民生</option>
+      <option value="HUB_YIXIANGHUA">HUB_YIXIANGHUA宜享花</option>
+      <option value="HUB_TIANMIAN">HUB_TIANMIAN天冕</option>
+      <option value="HUB_SHIGUANGFENQI">HUB_SHIGUANGFENQI时光分期</option>
+      <option value="HUB_HAOFENQI">HUB_HAOFENQI好分期</option>
+      <option value="HUB_FUYUANHUI">HUB_FUYUANHUI富元汇</option>
+      <option value="HUB_XIAOYING">HUB_XIAOYING小赢</option>
+      <option value="HUB_XINYONGFEI">HUB_XINYONGFEI信用飞</option>
+      <option value="HUB_XIAOXIANG_V2">HUB_XIAOXIANG_V2小象V2</option>
+      <option value="HUB_FEICHANGZHUN">HUB_FEICHANGZHUN非常准</option>
+      <option value="HUB_YUNBAOBAO">HUB_YUNBAOBAO云宝宝</option>
+      <option value="HUB_JIUFUV2">HUB_JIUFUV2玖富v2</option>
+      <option value="HUB_NIWODAI">HUB_NIWODAI你我贷</option>
+      <option value="HUB_NIWODAI_S1">HUB_NIWODAI_S1你我贷s1</option>
+      <option value="HUB_NIWODAI_S2">HUB_NIWODAI_S1你我贷s2</option>
+      <option value="LXJ_APP">LXJ_APP</option>
+      <option value="HUB_TEST">HUB_TEST</option>
+    </select><br><br>
+
+    <label class="inline-label" for="UserMobile">用户手机号：</label>
+    <input id="UserMobile" style="width: auto;" placeholder="指定手机号，不需要则为空" />
+    <label class="inline-label" for="UserID">用户身份证：</label>
+    <input id="UserID" style="width: auto;" placeholder="指定身份证，不需要则为空" />
+    <label class="inline-label" for="UserName">用户姓名：</label>
+    <input id="UserName" style="width: auto;" placeholder="指定姓名，不需要则为空" /><br><br>
+
+    <button id="getCheckData">获取准入参数</button>
+    <button id="pushCheckData">提交准入</button>
+
+    <button id="getCreditDataBtn">获取授信参数</button>
+    <button id="pushCreditDataBtn">提交授信</button>
+
+    <button id="getCreditResBtn" title="使用下面编辑框中的相关参数进行查询">查询授信结果</button>
+    <button id="getDrawH5Btn" value="draw" title="使用下面编辑框中的相关参数进行查询">获取借款H5入口</button>
+    <button id="getRepayH5Btn" value="repay" title="使用下面编辑框中的相关参数进行查询">获取还款H5入口</button>
+
+
+    <br><br>
+
+<!--    <label class="inline-label" for="UserMobile">用户手机号：</label>-->
+<!--    <input id="UserMobile" style="width: auto;" placeholder="指定手机号，不需要则为空" />-->
+<!--    <label class="inline-label" for="UserID">用户身份证：</label>-->
+<!--    <input id="UserID" style="width: auto;" placeholder="指定身份证，不需要则为空" />-->
+<!--    <label class="inline-label" for="UserName">用户姓名：</label>-->
+<!--    <input id="UserName" style="width: auto;" placeholder="指定姓名，不需要则为空" />-->
+<!--    <div id="jsonContainer"></div>-->
+    <div id="jsonContainer"></div>
+    <div id="checkResBox" class="output-box"></div>
+    <div id="hubCreditResBox" class="output-box"></div>
+    <div id="queryCreditResBox" class="output-box"></div>
+    <div id="H5Box" class="output-box"></div>
+  </div>
+  </div>
+
+  <button class="collapsible">渠道接口调用</button>
+  <div class="container">
+  <label class="inline-label" for="channelSelect">选择渠道：</label>
+  <select id="channelSelect">
+  <option value="">请选择渠道</option>
+  <option value="channel1">渠道1</option>
+  <option value="channel2">渠道2</option>
+  <option value="channel3">渠道3</option>
+  </select>
+  <div id="inputFields">
+  <!-- 这里将填充后端返回的输入框 -->
+  </div>
+  <button id="submitButton">提交</button>
+
+  <label for="selectA">请选择渠道 A</label>
+  <select id="selectA" onchange="updateSelectB()">
+    <option value="">请选择 A</option>
+  </select>
+
+  <div id="selectBContainer"></div>
+
+  <script>
+    function fetchData() {
+      const channel_data = {};
+      // 提交表单数据到后端
+      fetch("/api/get_channel_api", {
+        method: "POST",
+        body: JSON.stringify(channel_data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          // 处理提交后的响应
+          // ...
+      });
+      return {
+        "1": {
+          "11": 11,
+          "12": 12,
+        },
+        "准入": {
+          "userName":        "张三",
+          "md5Phone":        "",
+          "md5IdNo":         "",
+          "md5PhoneAndIdNo": "",
+          "partnerId":       "",
+          "openId":          "",
+        }
+      };
+    }
+
+    function updateSelectA(data) {
+      const selectA = document.getElementById("selectA");
+
+      // 清空 A 框的选项
+      selectA.innerHTML = "";
+
+      // 动态添加 A 框的选项
+      for (const key in data) {
+        const option = document.createElement("option");
+        option.value = key;
+        option.text = key;
+        selectA.appendChild(option);
+      }
+
+      // 设置默认选项为第一个值
+      selectA.value = Object.keys(data)[0];
+
+      // 更新 B 框的选项
+      updateSelectB();
+    }
+
+    function updateSelectB() {
+      const selectA = document.getElementById("selectA");
+      const selectBContainer = document.getElementById("selectBContainer");
+      const selectedValue = selectA.value;
+      const data = fetchData(); // 获取数据
+
+      // 清空 B 框的内容
+      selectBContainer.innerHTML = "";
+
+      if (selectedValue) {
+        const options = data[selectedValue];
+
+        // 遍历 B 框的选项
+        for (const key in options) {
+          const optionLabel = document.createElement("label");
+          optionLabel.textContent = key;
+          const optionInput = document.createElement("input");
+          optionInput.type = "text";
+          optionInput.value = options[key];
+
+          // 添加键和输入框到 B 框容器中
+          selectBContainer.appendChild(optionLabel);
+          selectBContainer.appendChild(optionInput);
+        }
+      }
+    }
+
+    // 获取后端数据并更新选项框的内容
+    updateSelectA(fetchData());
+
+  </script>
+</div>
+
+<!--<div id="app">-->
+<!--  <select v-model="selectedOptionA" @change="updateOptionsB">-->
+<!--    <option value="">请选择</option>-->
+<!--    <option value="option1">选项1</option>-->
+<!--    <option value="option2">选项2</option>-->
+<!--    <option value="option3">选项3</option>-->
+<!--  </select>-->
+
+<!--  <select v-model="selectedOptionB">-->
+<!--    <option value="">请选择</option>-->
+<!--    <option v-for="option in optionsB" :value="option">{{ option }}</option>-->
+<!--  </select>-->
+</div>
+
+</body>
+</html>

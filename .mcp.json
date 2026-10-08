@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "webtools-data-generator": {
+      "command": "python",
+      "args": ["-m", "mcp_server.server"],
+      "cwd": "D:\\tools\\webtools"
+    }
+  },
+  "_comment": {
+    "remote": "部署后可使用 HTTP URL 方式连接: url=http://<host>:<port>/mcp/sse"
+  }
+}

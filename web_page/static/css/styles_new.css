@@ -1,0 +1,102 @@
+
+body {
+  margin: 10px;
+  font-family: Arial, sans-serif;
+}
+
+/*#app {*/
+/*  height: 100%; !* 模拟长页面滚动效果 *!*/
+/*}*/
+
+.el-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* 将宽度设置为100% */
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.1); /* 半透明 */
+  backdrop-filter: blur(10px); /* 模糊效果 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding-left: 270px;
+}
+
+.el-aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  z-index: 1010;
+  font: 15px Arial, sans-serif;
+}
+.el-col-12 {
+  max-width: 100%;
+}
+
+.sidebar-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-header img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.el-main {
+  margin-left: 240px; /* 留出侧边栏空间 */
+  margin-top: 90px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+h1 {
+  margin: 0;
+  color: #333;
+}
+
+.channel-notify {
+  width: 48% !important;
+  height: auto;
+}
+.channel-notify .el-notification__group {
+  width: 100%;
+}
+.init-tip {
+ margin-bottom: 10px; /* 添加一些底部间距 */
+ color: #1a3582;
+ font-size: 14px;
+}
+.apply_tip {
+  margin-bottom: 10px;
+  color: rgba(200, 13, 47, 0.79);
+  font-size: 14px;
+}
+
+.topic-title {
+  margin-bottom: 10px;
+  color: #d30b39;
+}
+
+.form-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin: 15px;
+  background-color: #ffffff;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 450;
+  color: rgb(27, 97, 175); /* Element Plus 主题蓝 */
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebeef5;
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试平台</title>
+    <!-- element-plus.css需优先导入 -->
+    <link rel="stylesheet" href="../static/css/element-plus.css">
+    <link rel="stylesheet" href="../static/css/styles_new.css">
+
+    <script src="../static/js/vue@3.js" defer></script>
+    <script src="../static/js/element-plus.js" defer></script>
+    <script src="../static/js/icons-vue.js" defer></script>
+</head>
+<body>
+<div id="app">
+    <div class="common-layout">
+        <el-container>
+            <el-aside>
+                <div class="sidebar-header">
+                    <el-icon style="font-size: 30px; padding-right: 4px">
+                        <Promotion/>
+                    </el-icon>
+                    <H1 style="font-size: 22px;">测试平台</H1>
+                </div>
+                <el-col :span="12">
+                    <el-menu
+                            :default-active="activeMenu"
+                            class="el-menu"
+                            @select="handleMenuSelect"
+                    >
+                        <el-sub-menu index="group-1">
+                            <template #title>
+                                <el-icon>
+                                    <Location/>
+                                </el-icon>
+                                <span>书签导航</span>
+                            </template>
+                            <el-menu-item index="1">
+                                <el-icon>
+                                    <location/>
+                                </el-icon>
+                                <span>书签</span>
+                            </el-menu-item>
+                        </el-sub-menu>
+
+                        <el-sub-menu index="group-2">
+                            <template #title>
+                                <el-icon>
+                                    <User/>
+                                </el-icon>
+                                <span>用户中心</span>
+                            </template>
+                            <el-menu-item index="15">
+                                <el-icon>
+                                    <Avatar/>
+                                </el-icon>
+                                <span>用户授信</span>
+                            </el-menu-item>
+                            <el-menu-item index="4">
+                                <el-icon>
+                                    <User/>
+                                </el-icon>
+                                <span>用户信息查询</span>
+                            </el-menu-item>
+                        </el-sub-menu>
+
+                        <el-sub-menu index="group-3">
+                            <template #title>
+                                <el-icon>
+                                    <Management/>
+                                </el-icon>
+                                <span>API流程</span>
+                            </template>
+
+                            <el-menu-item index="16">
+                                <el-icon>
+                                    <Reading/>
+                                </el-icon>
+                                <span>创建借据</span>
+                            </el-menu-item>
+                            <el-menu-item index="18">
+                                <el-icon>
+                                    <Connection/>
+                                </el-icon>
+                                <span>借据还款</span>
+                            </el-menu-item>
+                        </el-sub-menu>
+
+                        <el-sub-menu index="group-4">
+                            <template #title>
+                                <el-icon>
+                                    <Monitor/>
+                                </el-icon>
+                                <span>H5流程</span>
+                            </template>
+                            <el-menu-item index="20">
+                                <el-icon>
+                                    <Paperclip/>
+                                </el-icon>
+                                <span>H5链接</span>
+                            </el-menu-item>
+                            <el-menu-item index="21">
+                                <el-icon>
+                                    <Postcard/>
+                                </el-icon>
+                                <span>H5绑卡</span>
+                            </el-menu-item>
+                            <el-menu-item index="22">
+                                <el-icon>
+                                    <Wallet/>
+                                </el-icon>
+                                <span>H5借款</span>
+                            </el-menu-item>
+                            <el-menu-item index="23">
+                                <el-icon>
+                                    <Money/>
+                                </el-icon>
+                                <span>H5还款</span>
+                            </el-menu-item>
+                            <el-menu-item index="25">
+                                <el-icon>
+                                    <Notification/>
+                                </el-icon>
+                                <span>橡树线下还款</span>
+                            </el-menu-item>
+                        </el-sub-menu>
+
+                        <el-sub-menu index="group-5">
+                            <template #title>
+                                <el-icon>
+                                    <Tools/>
+                                </el-icon>
+                                <span>数据处理</span>
+                            </template>
+                            <el-menu-item index="14">
+                                <el-icon>
+                                    <Refresh/>
+                                </el-icon>
+                                <span>借据初始化</span>
+                            </el-menu-item>
+                            <el-menu-item index="17">
+                                <el-icon>
+                                    <Aim/>
+                                </el-icon>
+                                <span>指定放款状态</span>
+                            </el-menu-item>
+                            <el-menu-item index="24">
+                                <el-icon>
+                                    <Position/>
+                                </el-icon>
+                                <span>指定还款结果</span>
+                            </el-menu-item>
+                            <el-menu-item index="19">
+                                <el-icon>
+                                    <Orange/>
+                                </el-icon>
+                                <span>mock数据调整</span>
+                            </el-menu-item>
+                        </el-sub-menu>
+
+                        {#                        </el-menu-item>#}
+
+                        <!--              <el-menu-item index="13">-->
+                        <!--                <el-icon><Refresh /></el-icon>-->
+                        <!--                <span>添加采集数据</span>-->
+                        <!--              </el-menu-item>-->
+                    </el-menu>
+                </el-col>
+            </el-aside>
+            <el-container>
+                <el-header>
+                    <el-radio-group v-model="selectedEnv" size="large"
+                                    style="display: flex; justify-content: flex-start; align-items: center;">
+                        <el-radio-button v-for="env in EnvOptions" :key="env" :label="env">
+                            {{ env }}
+                        </el-radio-button>
+                    </el-radio-group>
+                </el-header>
+                <el-main>
+                    <navigation-url v-show="activeMenu === '1'" :selected-env="selectedEnv"></navigation-url>
+
+                    <user-info-query v-show="activeMenu === '4'" :selected-env="selectedEnv"></user-info-query>
+
+                    <init-loan v-show="activeMenu === '14'" :selected-env="selectedEnv"></init-loan>
+                    <credit-apply v-show="activeMenu === '15'" :selected-env="selectedEnv"></credit-apply>
+                    <credit-order v-show="activeMenu === '16'" :selected-env="selectedEnv"></credit-order>
+                    <query-order v-show="activeMenu === '17'" :selected-env="selectedEnv"></query-order>
+                    <repay-order v-show="activeMenu === '18'" :selected-env="selectedEnv"></repay-order>
+                    <update-mock v-show="activeMenu === '19'" :selected-env="selectedEnv"></update-mock>
+                    <get-url v-show="activeMenu === '20'" :selected-env="selectedEnv"></get-url>
+                    <bind-card-submit v-show="activeMenu === '21'" :selected-env="selectedEnv"></bind-card-submit>
+                    <h5-draw-submit v-show="activeMenu === '22'" :selected-env="selectedEnv"></h5-draw-submit>
+                    <h5-repay-scene v-show="activeMenu === '23'" :selected-env="selectedEnv"></h5-repay-scene>
+                    <query-repay-result v-show="activeMenu === '24'" :selected-env="selectedEnv"></query-repay-result>
+                    <offline-oak-pay v-show="activeMenu === '25'" :selected-env="selectedEnv"></offline-oak-pay>
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
+</div>
+
+<script type="module">
+    // 导入和注册 navigation-url 组件
+    import navigationUrl from "../static/component/navigationUrl.js";
+    import queryUserInfo from "../static/component/queryUserInfo.js";
+    import initLoan from "../static/component/InitLoan.js";
+    import bm_credit_apply from "../static/component/bm_credit_apply.js";
+    import bm_credit_order from "../static/component/bm_credit_order.js";
+    import bm_query_order from "../static/component/bm_query_order.js";
+    import bm_repay_order from "../static/component/bm_repay_order.js";
+    import bm_mock_data from "../static/component/bm_mock_data.js";
+    import get_h5_url from "../static/component/get_h5_url.js";
+    import bm_bink_submit from "../static/component/bm_bink_submit.js";
+    import bm_h5_draw_submit from "../static/component/bm_h5_draw_submit.js";
+    import bm_h5_repay_scene from "../static/component/bm_h5_repay_scene.js";
+    import bm_query_repay_result from "../static/component/bm_query_repay_result.js";
+    import bm_offline_oak_pay from "../static/component/bm_offline_oak_pay.js";
+
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                EnvOptions: ['BM_SIT', 'DEV'], // 环境选项
+                selectedEnv: 'BM_SIT', // 单选按钮绑定的值
+                activeMenu: '1', // 当前激活的菜单
+            };
+        },
+        methods: {
+            // 菜单项点击事件处理函数
+            handleMenuSelect(index) {
+                this.activeMenu = index; // 更新当前激活的菜单项
+            }
+        }
+    });
+
+    // 注册组件
+    app.component('navigation-url', navigationUrl);
+
+    app.component('user-info-query', queryUserInfo);
+    app.component('init-loan', initLoan);
+    app.component('credit-apply', bm_credit_apply);
+    app.component('credit-order', bm_credit_order);
+    app.component('query-order', bm_query_order);
+    app.component('repay-order', bm_repay_order);
+    app.component('update-mock', bm_mock_data);
+    app.component('get-url', get_h5_url);
+    app.component('bind-card-submit', bm_bink_submit);
+    app.component('h5-draw-submit', bm_h5_draw_submit);
+    app.component('h5-repay-scene', bm_h5_repay_scene);
+    app.component('query-repay-result', bm_query_repay_result);
+    app.component('offline-oak-pay', bm_offline_oak_pay);
+
+
+    // 注册所有 Element Plus 图标
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+        app.component(key, component);
+    }
+    console.log("window.Vue", window.Vue);
+    // import { defineComponent } from 'vue';
+    // 使用 Element Plus 插件
+    app.use(ElementPlus);
+
+    app.mount('#app');
+</script>
+</body>
+</html>

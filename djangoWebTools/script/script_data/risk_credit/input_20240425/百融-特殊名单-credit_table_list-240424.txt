@@ -1,0 +1,10 @@
+br_special_cell_bad
+br_special_cell_lost
+br_special_cell_overdue
+br_special_id_bad
+br_special_id_lost
+br_special_id_overdue
+br_special_list
+br_special_order
+br_special_other
+br_special_strategy

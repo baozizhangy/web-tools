@@ -1,0 +1,249 @@
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 0.9; /* 设置页面的默认行间距 */
+    margin: 3px;
+    border: 6px;
+  overflow-y: scroll; /* 始终显示垂直滚动条 */
+  padding-right: 17px; /* 预留出滚动条的位置，确保不会导致页面变形 */
+}
+/* 当滚动条隐藏时，取消右侧边距的预留 */
+body::-webkit-scrollbar {
+  display: none;
+}
+label {
+  /*display: block;*/
+  margin: 3px;
+}
+input[type="text"],
+select {
+  width: auto; /* 使选择框宽度自适应 */
+  /*width: 200px;*/
+  padding: 3px;
+/*margin: 3px;*/
+}
+.selected {
+  border: 2px solid green; /* 设置边框宽度为3px，样式为实线，颜色为绿色 */
+  border-radius: 10px; /* 设置边框圆角，实现椭圆形状 */
+  font-weight: bold; /* 设置字体加粗 */
+}
+#itemList li {
+  display: inline-block;
+  margin: 3px;
+  cursor: pointer; /* 鼠标悬停时显示手型指针 */
+}
+/*a:link {color:#000000;}      !* 未访问链接*!*/
+a:visited {color:#3165cf;}  /* 已访问链接 */
+a:hover {color:#FF00FF;}  /* 鼠标移动到链接上 */
+a:active {color:#0000FF;}  /* 鼠标点击时 */
+a {text-decoration: none;}
+table {
+  border-collapse: collapse;
+  width: 100%;
+    margin: 0;
+    border: 2px solid black;
+
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 3px;
+    font-family: Arial, serif;
+  font-size: 16px;
+}
+
+/*button {*/
+/*padding: 3px 3px;*/
+/*background-color: #4CAF50;*/
+/*color: white;*/
+/*border: 3px;*/
+/*cursor: pointer;*/
+/*border-radius: 6px; !* 设置圆角半径 *!*/
+/*}*/
+.inline-label {
+display: inline-block;
+}
+.inline-label {
+display: inline-block;
+vertical-align: middle;
+}
+
+.inline-list {
+display: inline-block;
+vertical-align: middle;
+list-style-type: none;
+padding: 3px;
+margin: 0;
+}
+
+.inline-list li {
+display: inline;
+/*margin: 3px;*/
+}
+
+
+#selectField,
+#createUserField {
+width: 60px; /* 设置为适当的固定宽度 */
+/*margin: 3px;*/
+}
+
+.output-box {
+border: 1px solid black;
+padding: 12px;
+word-wrap: break-word; /* 或者使用 word-break: break-all; */
+overflow-wrap: break-word; /* 兼容性更好的属性，与 word-wrap: break-word; 作用相同 */
+max-width: 100%;
+}
+.little-tools {
+    overflow: hidden;
+}
+.little-tools label,
+.little-tools input,
+.little-tools button,
+.little-tools output {
+    float: left;
+    margin-right: 10px;
+}
+.container,
+.form-row{
+  box-sizing: border-box;
+  width: 100%;
+  border: 2px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+border-radius: 8px; /* 设置圆角半径 */
+}
+.form-row {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.form-row label {
+}
+.form-row input[type="text"],
+.form-row button {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.form-row input[type="text"]
+.output {
+    width: 400px;}
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+
+    }
+
+.collapsed .content {
+  display: none;
+  /*border-radius: 8px; !* 设置圆角半径 *!*/
+}
+
+.collapsible::after {
+  content: ' +';
+  float: right;
+  /*border-radius: 8px; !* 设置圆角半径 *!*/
+}
+
+.collapsible.collapsed::after {
+  content: ' -';
+  /*border-radius: 8px; !* 设置圆角半径 *!*/
+
+}
+
+/* 设置编辑器容器的高度 */
+#jsonContainer {
+  height: auto !important;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+#jsonTextarea {
+  display: none;
+}
+
+/* 侧边导航菜单 */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  z-index: 1; /* 添加 z-index 属性以确保导航栏位于其他元素之上 */
+
+  float: left; /* 设置为左浮动 */
+}
+
+/* 侧边栏链接 */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* 活动/当前链接 */
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* 鼠标悬停链接 */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* 页面内容。 margin-left 属性的值应该与侧边栏的 width 属性的值匹配 */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* 在宽度小于 700px 的屏幕上，将侧边栏变成顶部栏 */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  margin-bottom: 20px; /* 添加 margin-bottom 属性以避免与内容重叠 */
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* 在小于 400px 的屏幕上，垂直显示栏，而不是水平显示 */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+  margin-right: 0; /* 添加右边距，初始值为0 */
+  transition: margin-right 0.3s ease; /* 添加过渡效果，使右边距变化平滑 */
+}
+.init-tip {
+ margin-bottom: 10px; /* 添加一些底部间距 */
+ color: #1a3582;
+ font-size: 14px;
+}
+/*.block {*/
+/*  background-color: lightgray;*/
+/*  padding: 10px;*/
+/*  overflow: hidden; !* 清除浮动 *!*/
+/*}*/

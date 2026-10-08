@@ -1,0 +1,16 @@
+login_cases:
+  - username: stt
+    password: wuPIVIa9vJ0zzA4Z5gINgjT93jtac9ntttWePAAz50nmLu28G1IdCypmSXn04GIOgZzbA66IgTSHGz8iwoa3Wg==
+
+  - username: stt
+    password: 12332123
+
+
+query_cases:
+  - menuType: WORK_ORDER_MANAGEMENT
+
+  - urgencyLevel: URGENT
+    menuType: WORK_ORDER_MANAGEMENT
+
+  - urgencyLevel: NORMAL
+    menuType: WORK_ORDER_MANAGEMENT

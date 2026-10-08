@@ -1,0 +1,12 @@
+checkout:
+  - case: "撞库通过"
+    path: "lxj/userAccess"
+    mobile: "5c15aee1da18751a4b3be8f5cb71d196"
+    id_card: "420000000000000000"
+    result: 1
+
+  - case: "撞库未通过"
+    path: "lxj/userAccess"
+    mobile: "e0e3c88318bc757d6b2859d65edb2ffc"
+    id_card: "420000000000000001"
+    result: 2

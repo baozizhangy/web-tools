@@ -1,0 +1,70 @@
+# ============================================================
+# web-tools .gitignore
+# ============================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.pip/
+pip-wheel-metadata/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# 测试 / 覆盖率缓存
+.pytest_cache/
+pytest_cache/
+.tox/
+.cache/
+.coverage
+coverage.xml
+nosetests.xml
+
+# ---------- Node ----------
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ---------- 测试报告等生成物（不提交）----------
+allure-report/
+allure-results/
+allure_results/
+reports/
+/script/script_data/
+
+# ---------- 日志 ----------
+logs/
+*.log
+
+# ---------- 运行时 / 本地配置 ----------
+nacos-data/
+.env
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+instance/
+.webassets-cache/
+
+# ---------- 构建产物 ----------
+dist/
+build/
+
+# ---------- IDE / 编辑器 ----------
+.idea/
+.vscode/
+.vs/
+*.swp
+*~
+.DS_Store
+thumbs.db
+.ipynb_checkpoints/
+
+# ---------- 工具本地配置 ----------
+.claude/

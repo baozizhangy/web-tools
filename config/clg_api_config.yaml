@@ -1,0 +1,106 @@
+# APP流程接口
+# 配置clg网关接口路径
+credit:
+  white: /chg/cis/test/bmPhoneWhite/addOrUpdateBmPhoneWhite
+  flow: /clg/lps/api/u/pilot/apply/flow
+
+  ocr:
+    # 获取身份证识别方式
+    ocr_source: /clg/lps/api/u/apply/v1/ocr/ocrSource
+    # 旷世身份证识别
+    ks_ocr: /clg/lps/api/u/apply/v1/kuangshiocr
+    # 微众身份证识别
+    wz_ocr: /clg/lps/api/u/apply/v1/ocr/sdkVerify
+    # 获取微众sdk使用的token
+    wz_token: /clg/lps/api/u/apply/v1/ocr/sdkSign
+    # H5身份证识别
+    h5_ocr: /clg/lps/api/u/apply/v1/ocr/h5Verify
+    # 身份识别两要素信息存储
+    ocr_save: /clg/lps/api/u/apply/v1/ocrTwoAuth/save
+  face:
+    # 获取人脸识别方式
+    face_source: /clg/lps/api/u/apply/v1/face/faceSource
+    # 获取旷世人脸活体的token
+    ks_token: /clg/lps/api/u/apply/v1/face/getKsLiveToken
+    # 旷世人脸活体验证
+    ks_verify: /clg/lps/api/u/apply/v1/face/ksVerify
+    # 获取微众人脸活体的token
+    wz_token: /clg/lps/api/u/apply/v1/face/getWzLiveToken
+    # 微众人脸活体验证
+    wz_verify: /clg/lps/api/u/apply/v1/face/wzVerify
+    # H5人脸活体登录
+    h5_login: /clg/lps/api/u/apply/v1/face/h5Login
+    # H5人脸活体验证
+    h5_verify: /clg/lps/api/u/apply/v1/face/h5Verify
+  contact:
+    # 联系人信息查询
+    query: /clg/lps/api/u/apply/v1/contact/query
+    # 联系人信息新增/更新
+    operate: /clg/lps/api/u/apply/v1/contact/operate
+  profile:
+    # 详细资料信息查询
+    #    query: /clg/lps/api/u/apply/v1/details/query
+    query: /clg/lps/api/u/apply/v2/new/details/query
+    # 详细资料信息新增/更新
+    #    operate: /clg/lps/api/u/apply/v1/details/operate
+    operate: /clg/lps/api/u/apply/v2/new/details/operate
+
+  apply_page:
+    # 获取授信申请页面展示信息
+    query: /clg/lps/api/u/apply/v1/credit/querySubPageInfo
+    # 授信申请页面信息上传
+    upload: /clg/lps/api/u/apply/v1/credit/pageUpload
+  agreement:
+    # 获取强阅读协议信息
+    query: /clg/lps/api/u/fund-agreement/force/agreementReadNode
+    # 强阅读协议信息上传
+    save: /clg/lps/api/u/agreement-force-read/save
+  apply_result:
+    # 授信申请结果查询
+    query: /clg/lps/api/u/apply/v1/credit/queryResultPageInfo
+    refresh: /clg/lps/api/u/api/pilotApply/refreshCreditStatus
+  home:
+    # 触发页面刷新，授信结果查询
+    page_info: /clg/lps/api/u/home/v1/pageInfo
+
+  credit_list:
+    query: /clg/lps/api/u/apply/v1/credit/queryApplyList
+# 绑卡相关接口
+bind:
+  # 获取机构绑卡信息接口
+  query: /clg/lps/api/u/pilot/bind/queryUsableBankCard
+  # 四要素绑卡
+  four: /clg/lps/api/u/pilot/bind/fourFactorBindCard
+  # 机构绑卡
+  fund: /clg/lps/api/u/pilot/bind/fundBindCard
+  # 机构绑卡验证码校验
+  verify: /clg/lps/api/u/pilot/bind/verifyCode
+  # 跳过绑卡
+  skip: /clg/lps/api/u/pilot/bind/skipBindCard
+
+help:
+  helpsubmit: /clg/css/api/feedback/v1/submit?version=7.7
+
+#账单相关
+plan:
+  # 查询未还账单列表
+  list: /clg/lps/api/u/loan/v1/repay/list
+  # 还款试算
+  trial: /clg/lps/api/u/repay/v1/trial
+
+bm_api:
+  check_user:
+    #准入接口
+    user: /userAccess
+    # 撞库
+    credit_apply: /creditApply
+    # 授信提交
+    credit_query: /creditResultQuery
+    # 授信结果查询
+  draw_trial:
+    # 试算接口
+    trial: /drawTrial
+    # 借款申请：
+    draw_submit: /drawSubmit
+    # 放款结果查询
+    draw_query: /drawResultQuery

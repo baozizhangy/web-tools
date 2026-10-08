@@ -1,0 +1,12 @@
+# 配置机构回调接口，为cbg网关接口路径
+
+# 机构回调接口配置
+fund:
+  # 同程 tongcheng
+  tongcheng:
+    # 授信回调
+    credit_callback: /tc/callback/credit/apply
+    # 借款回调
+    draw_callback: /tc/callback/loan
+    # 还款回调
+    repay_callback: /tc/callback/repay

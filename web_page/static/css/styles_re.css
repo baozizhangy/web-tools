@@ -1,0 +1,500 @@
+body {
+  margin: 10px;
+  padding: 0;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: rgba(242, 242, 242, 0.73); /* 网页背景颜色 */
+  font-size: 16px;
+}
+
+/*块标题样式*/
+.blockTitle {
+  font-weight: normal;
+  transition: all 0.3s ease; /* 使用 all 关键字使所有属性过渡效果更统一 */
+  cursor: pointer;
+}
+
+.blockTitle:hover {
+  font-weight: bold; /* 悬停时字体加粗 */
+}
+
+.blockTitle:active {
+  transform: translateY(2px); /* 点击时添加向下移动效果 */
+  transition: transform 0.1s ease; /* 为点击添加快速过渡效果 */
+}
+.custom-select .el-select-multiple {
+  display: flex;
+  flex-wrap: wrap; /* 使标签换行 */
+}
+.flex-container {
+    margin-top: 10px;
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+    margin-bottom: 10px;
+}
+
+.label {
+  white-space: nowrap; /* 防止换行 */
+  margin-right: 20px; /* 标签与选择框的间距 */
+  overflow: hidden; /* 隐藏超出部分 */
+  text-overflow: ellipsis; /* 超出部分用省略号表示（可选） */
+}
+
+.custom-select {
+
+    margin-left: 10px;
+  margin-right: 10px; /* 选择框与按钮的间距 */
+  min-width: 800px; /* 设置选择框的最小宽度 */
+}
+
+
+.custom-select .el-select-multiple {
+  flex-wrap: wrap; /* 多选标签自动换行 */
+}
+
+/* 加载动画 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* 初始状态透明 */
+    transform: scale(0.9); /* 初始状态缩小 */
+  }
+  100% {
+    opacity: 1; /* 最终状态不透明 */
+    transform: scale(1); /* 最终状态正常大小 */
+  }
+}
+
+.animatedBlockTitle {
+  animation: fadeIn 0.5s ease forwards; /* 添加动画，持续0.5秒，缓动方式为ease，使用forwards保持最终状态 */
+}
+
+/*块样式*/
+.block {
+  margin: 10px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-clip: padding-box;
+  padding: 10px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 15px #cac6c6;
+  box-shadow: 0 0 15px #cac6c6;
+  clear: both;
+  height: auto;
+  -webkit-transition-property: height;
+  transition-property: height;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  overflow: hidden;
+
+  /* 设置为相对定位 */
+  position: relative;
+  display: grid;
+  grid-gap: 10px;
+}
+
+/*按钮样式*/
+/*button {*/
+/*  white-space: nowrap; !* 设置按钮文字不换行 *!*/
+/*  display: inline-block;*/
+/*  padding: 10px 20px;*/
+/*  background-color: white;*/
+/*  color: black;*/
+/*  text-decoration: none;*/
+/*  border: none;*/
+/*  border-radius: 5px;*/
+/*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+/*  transition: box-shadow 0.3s;*/
+/*}*/
+
+/*按钮鼠标悬浮样式*/
+/*button:hover .close-button{*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*按钮鼠标点击样式*/
+/*button:active .close-button {*/
+/*    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+select {
+  white-space: nowrap; /* 设置按钮文字不换行 */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+}
+
+/* el通知样式 */
+/*.el-notification {*/
+/*  width: 48%; !* 设置你想要的宽度 *!*/
+/*  height: auto;*/
+/*}*/
+.channel-notify {
+  width: 48% !important;
+  height: auto;
+}
+.channel-notify .el-notification__group {
+  width: 100%;
+}
+.risk-input-box {
+  position: relative;
+  display: inline-block;
+}
+
+.clear-btn {
+  position: absolute;
+  top: 50%;
+  right: 40px; /* 根据需要调整这个值以确保删除按钮与下拉符号分开 */
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+  z-index: 88;
+}
+
+.clear-btn:hover {
+  color: #666;
+}
+
+/*.submit-button {*/
+/*  background-color: #007bff;*/
+/*  color: white;*/
+/*}*/
+
+/*!*按钮鼠标悬浮样式*!*/
+/*.submit-button:hover {*/
+/*    box-shadow: 0 4px 8px rgba(0, 123, 255, 100);*/
+/*}*/
+
+/*!*按钮鼠标点击样式*!*/
+/*.submit-button:active {*/
+/*    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*.button-container {*/
+/*  margin-top: 10px; !* 设置顶部间隔 *!*/
+/*  margin-bottom: 10px; !* 设置底部间隔 *!*/
+/*  display: flex;*/
+/*  flex-wrap: wrap; !* 允许按钮在需要时自动换行 *!*/
+/*  gap: 10px; !* 设置按钮之间的间隔（示例间距为10像素） *!*/
+/*}*/
+
+/*输入框样式*/
+/*.input_box {*/
+/*    display: inline-block;*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+.input_box {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* 设置合适的字体大小 */
+    color: #333; /* 设置文字颜色 */
+    background-color: #fff; /* 设置背景颜色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微阴影效果 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+
+    /* 设置光标样式 */
+    caret-color: #333;
+}
+
+.input_box:focus {
+    border-color: #66afe9; /* 获得焦点时边框颜色 */
+    outline: none; /* 去除默认的外边框 */
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* 增加获得焦点时的轻微阴影效果 */
+}
+
+
+/*elementUI输入框样式*/
+.el-input-box {
+    width: 188px;
+    /*margin-left: 10px;*/
+    /*margin-right: 10px;*/
+
+}
+
+/*输入框鼠标悬浮样式*/
+.input_box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*输入框鼠标点击样式*/
+.input_box:focus {
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 0 2px #007bff;
+}
+
+.output-box {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  padding: 2px;
+  word-wrap: break-word;
+  height: auto;
+  overflow: hidden; /* 隐藏滚动条 */
+}
+
+/*分割线样式*/
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*a标签链接样式*/
+a {
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+  color: #515151;
+}
+
+/*a标签鼠标悬浮样式*/
+a:hover {
+  text-decoration: underline;
+}
+
+/*ul列表样式*/
+ul {
+  padding: 0;
+  /*display: flex;*/
+  /*flex-wrap: wrap;*/
+  list-style: none;
+}
+
+/*li列表样式*/
+li {
+  justify-content: flex-start;  /* 左对齐 */
+  flex-basis: calc(20%); /* 计算每个li元素的基础宽度，使得每行最多显示5个元素 */
+  margin-left: 2ch;
+}
+
+/*环境选择容器样式*/
+.environment-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/*环境选择样式*/
+.environment-option {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.environment-option:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*选中的环境样式*/
+.environment-option.selected {
+    background-color: blue;
+    color: white;
+}
+
+/*json编辑器容器*/
+/*.channelJsonEditorBox {*/
+/*  width: 100%;*/
+/*  height: 400px;*/
+/*}*/
+
+.jsoneditor-nav {
+  background-color: red;
+}
+.jsoneditor-menu {
+  display: none;
+}
+.ace_scrollbar {
+  display: none;
+}
+
+.ace-jsoneditor .ace_gutter {
+  background: #ffffff;
+}
+.jsoneditor.jsoneditor-mode-code {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.channelBox {
+  display: flex; /* 使用 Flexbox 布局 */
+}
+
+/*两列布局*/
+.twoColumn {
+  margin: 3px;
+  flex: 1; /* 列的宽度平分剩余空间 */
+}
+
+.bubble {
+  display: inline-block;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/*.close-button {*/
+/*  padding: 6px;*/
+/*  cursor: pointer;*/
+/*  color: red;*/
+/*  font-weight: bold;*/
+/*  transition: transform 0.2s; !* 添加过渡效果以平滑过渡 *!*/
+
+/*  border-radius: 5px;*/
+/*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+/*  !* 初始状态为正常大小 *!*/
+/*  transform: scale(1);*/
+/*}*/
+
+/*.close-button:hover {*/
+/*  !* 鼠标悬浮时放大 1.2 倍 *!*/
+/*  transform: scale(1.5);*/
+/*  box-shadow: 0 4px 8px rgba(248, 2, 10, 0.87);*/
+/*}*/
+
+  .multi-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+
+  .multi-list li {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    margin-right: 10px; /* 可根据需要调整选项之间的间距 */
+    margin-bottom: 10px; /* 可根据需要调整选项之间的间距 */
+  }
+
+.delCheckBox {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+}
+
+.delCheckBox:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delCheckBox:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.button-link {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: #4CAF50; /* 设置背景颜色 */
+  color: white; /* 设置字体颜色 */
+  text-decoration: none; /* 去除下划线 */
+  border-radius: 4px; /* 添加圆角 */
+  cursor: pointer; /* 更改鼠标指针为手形 */
+  transition: background-color 0.2s ease; /* 添加过渡效果 */
+}
+.generate-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease-out;
+}
+
+.input_box1 {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 150px;
+}
+
+.input_box1:focus {
+    background-color: #e6f7ff; /* 输入框背景颜色 */
+    border-color: #3875d7; /* 边框颜色 */
+    outline: none; /* 移除默认的聚焦外边框 */
+}
+.generate-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.generate-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.output-box {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px; /* 增加内边距以提升输入舒适度 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* 提高字体大小以提升可读性 */
+    line-height: 1.5; /* 增加行高以增强可读性 */
+    background-color: #fefefe; /* 设置背景色为更柔和的白色 */
+    resize: vertical; /* 允许用户垂直调整大小 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* 包含边框在内的盒模型 */
+}
+
+
+.output-box:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+    outline: none;
+    background-color: #ffffff; /* 聚焦时颜色微调，更加显眼 */
+}
+
+@media (max-width: 600px) {
+    .output-box {
+        font-size: 14px; /* 在小屏幕上减小字体大小 */
+        padding: 10px; /* 减少内边距以适应小屏幕 */
+    }
+}
+
+
+.query-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.query-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+.query-button .fas {
+      margin-right: 2px; /* 增加图标与文字之间的右边距 */
+}
